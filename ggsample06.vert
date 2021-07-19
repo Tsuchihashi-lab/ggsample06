@@ -35,7 +35,7 @@ void main(void)
   vec3 h = normalize(l + v);                         // 光線ベクトルと視線ベクトルの中間ベクトル
 
   // 照明方程式の各要素
-  vec4 iamb = kamb + lamb;                                         // 環境光成分
+  vec4 iamb = kamb * lamb;                                         // 環境光成分
   vec4 idiff = max(dot(n, l), 0) * kdiff * ldiff;                  // 拡散反射光成分
   vec4 ispec = pow(max(dot(n, h), 0), kshi) * kspec * lspec;       // 鏡面反射光成分
 
